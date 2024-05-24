@@ -11,7 +11,7 @@ const ImpactChart = () => {
       data: {
         labels: ['Ekolojik', 'Ekonomik', 'Sağlık'],
         datasets: [{
-          label: 'Impact',
+          label: 'Etki Alanları',
           data: [50, 30, 20],
           backgroundColor: ['#FF5733', '#33FF57', '#3357FF']
         }]
@@ -31,7 +31,10 @@ const ImpactChart = () => {
   }, []);
 
   return (
-    <canvas ref={chartRef} width="400" height="400"></canvas>
+    <div className="chart-impact">
+      
+    <canvas ref={chartRef} ></canvas>
+    </div>
   );
 };
 

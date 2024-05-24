@@ -24,7 +24,10 @@ const CausesChart = () => {
   }, []);
 
   return (
-    <canvas ref={chartRef} id="causesChart" width="400" height="400"></canvas>
+    <div className="chart-causes">
+
+<canvas ref={chartRef} id="causesChart" ></canvas>
+    </div>
   );
 };
 
