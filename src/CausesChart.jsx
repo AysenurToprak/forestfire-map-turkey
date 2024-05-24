@@ -1,34 +1,31 @@
-import React, { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
-
+import React from 'react';
+import { Pie } from 'react-chartjs-2';
 
 const CausesChart = () => {
-  const chartRef = useRef();
+  const data = {
+    labels: ['Yıldırım-Şimşek', 'Volkanik Patlamalar', 'Kamp Ateşi', 'Sigara', 'Kundaklama', 'İklim Değişiklikleri'],
+    datasets: [{
+      data: [25, 5, 20, 10, 20, 20],
+      backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56', '#4bc0c0', '#9966ff', '#ff9f40']
+    }]
+  };
 
-  useEffect(() => {
-    const ctx = chartRef.current.getContext('2d');
-    const causesChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Doğal Sebepler', 'İnsan Nedenleri'],
-        datasets: [{
-          data: [30, 70],
-          backgroundColor: ['#FF5733', '#33FF57']
-        }]
-      }
-    });
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+    }
+  };
 
-    return () => {
-      causesChart.destroy();
-    };
-  }, []);
+  return(
+<div className="chart-causes" >
+<Pie data={data} options={options} />
+</div>
 
-  return (
-    <div className="chart-causes">
-
-<canvas ref={chartRef} id="causesChart" ></canvas>
-    </div>
   );
+  
 };
 
 export default CausesChart;
